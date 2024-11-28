@@ -1,7 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?import javafx.scene.control.ListView?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
 
-<VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.anivault.HelloController">
-    <ListView fx:id="animeListView" prefWidth="600" prefHeight="400" />
-</VBox>
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.anivault.HelloController" style="-fx-background-color: black;">
+    <!-- Header -->
+    <top>
+        <HBox spacing="10" style="-fx-padding: 10; -fx-background-color: #1a1a1a; -fx-alignment: center-left;">
+            <Label text="AniVault" style="-fx-text-fill: white; -fx-font-size: 24px; -fx-font-weight: bold;" />
+            <TextField fx:id="searchField" promptText="Search anime..." onAction="#onSearch"
+                       style="-fx-background-color: #333333; -fx-text-fill: white; -fx-prompt-text-fill: gray; -fx-border-color: #FF9900; -fx-border-radius: 5; -fx-background-radius: 5; -fx-padding: 5;" />
+            <Button text="Home" onAction="#onHome"
+                    style="-fx-background-color: #FF9900; -fx-text-fill: white; -fx-font-weight: bold; -fx-border-radius: 5; -fx-background-radius: 5;" />
+            <Button text="Favorites" onAction="#onFavorites"
+                    style="-fx-background-color: #FF9900; -fx-text-fill: white; -fx-font-weight: bold; -fx-border-radius: 5; -fx-background-radius: 5;" />
+            <Button text="Logout" onAction="#onLogout"
+                    style="-fx-background-color: #FF3333; -fx-text-fill: white; -fx-font-weight: bold; -fx-border-radius: 5; -fx-background-radius: 5;" />
+        </HBox>
+    </top>
+
+    <!-- Scrollable Anime Gallery -->
+    <center>
+        <ScrollPane fitToWidth="true" style="-fx-background: black;">
+            <GridPane fx:id="animeGalleryGrid" hgap="20" vgap="20" style="-fx-padding: 20;" />
+        </ScrollPane>
+    </center>
+</BorderPane>
